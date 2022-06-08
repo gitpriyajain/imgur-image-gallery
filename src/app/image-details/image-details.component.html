@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="col-lg-6 col-md-12 mb-4 image-container">
+      <div class="card p-2 h-100 w-100">
+        <div
+          class="bg-image hover-overlay ripple h-100 w-100"
+          data-mdb-ripple-color="light"
+        >
+          <img
+            [src]="imageDetails.link"
+            class="img-fluid"
+            style="object-fit: contain"
+          />
+          <div
+            class="mask"
+            style="background-color: rgba(251, 251, 251, 0.15)"
+          ></div>
+        </div>
+        <div class="card-body" *ngIf="imageDetails.title">
+          <p class="card-text">
+            {{ imageDetails.title }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12 mb-4 card details-card">
+      <div class="card-header">Details</div>
+      <div class="card-body details-body">
+        <dl *ngFor="let image of imageDetails | keyvalue">
+          <dt>
+            {{ image.key }}
+            <p>:</p>
+          </dt>
+          <dd>
+            {{ image.value ? image.value : "-" }}
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>

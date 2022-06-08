@@ -4,44 +4,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
       <!-- Navbar brand -->
-      <h3>Imgur Image Gallery</h3>
-      <div class="d-flex">
-        <form class="d-flex" [formGroup]="specsForm">
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            formControlName="section"
-            (change)="handleChange()"
-          >
-            <option selected value="hot">Hot</option>
-            <option value="top">Top</option>
-            <option value="user">User</option>
-          </select>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            formControlName="sort"
-            (change)="handleChange()"
-          >
-            <option selected value="viral">Viral</option>
-            <option value="top">Top</option>
-            <option value="time">Time</option>
-            <option value="rising">Rising</option>
-          </select>
-          <select
-            class="form-select"
-            aria-label="Default select example"
-            formControlName="period"
-            (change)="handleChange()"
-          >
-            <option selected value="day">Day</option>
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-            <option value="all">All</option>
-          </select>
-        </form>
-      </div>
+      <h3>IMGUR</h3>
     </div>
   </nav>
   <!-- Navbar -->
@@ -51,48 +14,7 @@
 <!--Main layout-->
 <main class="my-5">
   <div class="container">
-    <!--Section: Content-->
-    <section class="text-center">
-      <div class="row" *ngIf="!loading">
-        <div class="col-lg-4 col-md-12 mb-4" *ngFor="let image of images">
-          <div class="card">
-            <div
-              class="bg-image hover-overlay ripple"
-              data-mdb-ripple-color="light"
-            >
-              <img
-                src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                [src]="image.images[0].link"
-                class="img-fluid"
-                style="height: 500px"
-              />
-              <a href="#!">
-                <div
-                  class="mask"
-                  style="background-color: rgba(251, 251, 251, 0.15)"
-                ></div>
-              </a>
-            </div>
-            <div class="card-body">
-              <p class="card-text">
-                {{ image.title }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="loading">
-        <div class="spinner-grow text-primary" role="status"></div>
-        <div class="spinner-grow text-secondary" role="status"></div>
-        <div class="spinner-grow text-success" role="status"></div>
-        <div class="spinner-grow text-danger" role="status"></div>
-        <div class="spinner-grow text-warning" role="status"></div>
-        <div class="spinner-grow text-info" role="status"></div>
-        <div class="spinner-grow text-light" role="status"></div>
-        <div class="spinner-grow text-dark" role="status"></div>
-      </div>
-    </section>
+    <router-outlet></router-outlet>
   </div>
 </main>
 <!--Main layout-->

@@ -1,25 +1,25 @@
-import { Component , OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { ImgurImageGalleryService } from './service/imgur-image-gallery.service';
+import { ImgurImageGalleryService } from '../service/imgur-image-gallery.service';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [ImgurImageGalleryService],
+  selector: 'app-image-gallery',
+  templateUrl: './image-gallery.component.html',
+  styleUrls: ['./image-gallery.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'imgur-image-gallery';
+export class ImageGalleryComponent implements OnInit {
+
+  title = 'imgur';
   images: any = [];
   url = 'https://api.imgur.com/3/gallery/hot/viral/day/0';
   loading: boolean = true;
 
   constructor(
     private imgurService: ImgurImageGalleryService,
-    private formBuilder: FormBuilder
+    private _location: Location
   ) {}
 
-  
   specsForm = new FormGroup({
     section: new FormControl('hot'),
     sort: new FormControl('viral'),
@@ -29,9 +29,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.getAlbum();
   }
-  
+
+  onSubmit() {}
+
   handleChange() {
     this.url = `https://api.imgur.com/3/gallery/${this.specsForm.value.section}/${this.specsForm.value.sort}/${this.specsForm.value.period}/0`;
+    // this._location.back();
+
     this.getAlbum();
   }
 

@@ -1,0 +1,20 @@
+.d-flex {
+    display: flex !important;
+    padding: 10px;
+    justify-content: center;
+  }
+  
+  select {
+    width: fit-content;
+    min-width: 100px;
+    margin: 10px;
+  }
+  
+  .spinner-grow {
+    margin: 10px;
+  }
+  
+  .my-5 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
